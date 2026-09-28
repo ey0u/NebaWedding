@@ -1,0 +1,86 @@
+{
+  "card": {
+    "tapSeal": "Tap the Seal",
+    "scrollUp": "Scroll Up to Enter"
+  },
+  "nav": {
+    "theDate": "The date",
+    "ourStory": "Our story",
+    "gallery": "Gallery",
+    "program": "Program",
+    "venue": "Venue"
+  },
+  "hero": {
+    "theWeddingOf": "The Wedding Of",
+    "name1": "Nebiyu",
+    "name2": "Hewan",
+    "request": "Request the pleasure of your company",
+    "musicPlaying": "Now playing",
+    "musicPlay": "Play our song",
+    "bibleVerse": "My ears had heard of you but now my eyes have seen you. Job 42:5"
+  },
+  "dateSection": {
+    "eyebrow": "The first chapter",
+    "title": "A date worth\nremembering.",
+    "subtitle": "We saved a place in time for the people we love most. Scratch away the gold to find it.",
+    "scratchText": "SCRATCH TO REVEAL",
+    "countdownLabel": "Until we say I do",
+    "countdown": {
+      "days": "Days",
+      "hours": "Hours",
+      "minutes": "Minutes",
+      "seconds": "Seconds"
+    }
+  },
+  "storySection": {
+    "eyebrow": "Chapter one",
+    "title": "Our story",
+    "quote": "“It was Tuesday,\nthe 19th.”",
+    "p1": "Before that day, we had shared many conversations over the phone, slowly getting to know each other. Yet there was still so much we had never said.\nThen came the day we finally met at the café we had chosen. She arrived before me, and when I saw her for the first time, something in my heart changed.\nWhat had begun through conversations suddenly felt real, and I found myself drawn to her in a way I could not explain. In that moment, I knew I wanted to spend my life with her.",
+    "p2": "And by God's grace, that first meeting led us here—to this beautiful chapter of our lives, together."
+  },
+  "gallerySection": {
+    "theStart": "The Start"
+  },
+  "date": {
+    "displayDate": "October 04, 2026",
+    "day": "04",
+    "month": "OCTOBER",
+    "year": "2026"
+  },
+  "timeline": {
+    "eyebrow": "Chapter two",
+    "title": "Our day",
+    "events": [
+      {
+        "time": "09:00",
+        "title": "Guest arrival",
+        "desc": "A warm welcome, a glass in hand."
+      },
+      {
+        "time": "10:00",
+        "title": "Ceremony",
+        "desc": "The moment we have been waiting for."
+      }
+    ]
+  },
+  "quoteSection": {
+    "quote": "Where there is love,\nthere is life.",
+    "author": "— Mahatma Gandhi",
+    "instruction": "Move around to reveal"
+  },
+  "venue": {
+    "imageLabel": "A place to gather",
+    "eyebrow": "Chapter three",
+    "title": "Where we begin\na new chapter.",
+    "name": "The Grand Palace",
+    "location": "Addis Ababa, Ethiopia",
+    "time": "10:00",
+    "openInMaps": "Open in maps"
+  },
+  "finalSection": {
+    "eyebrow": "The next chapter",
+    "title": "We can't wait to\ncelebrate with you,\n{{name}}.",
+    "subtitle": "New Beginnings start here."
+  }
+}
