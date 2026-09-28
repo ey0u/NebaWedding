@@ -53,12 +53,12 @@
     "title": "Our day",
     "events": [
       {
-        "time": "09:00",
+        "time": "10:00",
         "title": "Guest arrival",
-        "desc": "A warm welcome, a glass in hand."
+        "desc": "A warm welcome."
       },
       {
-        "time": "10:00",
+        "time": "11:00",
         "title": "Ceremony",
         "desc": "The moment we have been waiting for."
       }
@@ -73,14 +73,14 @@
     "imageLabel": "A place to gather",
     "eyebrow": "Chapter three",
     "title": "Where we begin\na new chapter.",
-    "name": "The Grand Palace",
+    "name": "Church",
     "location": "Addis Ababa, Ethiopia",
     "time": "10:00",
     "openInMaps": "Open in maps"
   },
   "finalSection": {
     "eyebrow": "The next chapter",
-    "title": "We can't wait to\ncelebrate with you,\n{{name}}.",
+    "title": "We can't wait to celebrate with you, {{name}}.",
     "subtitle": "New Beginnings start here."
   }
 }

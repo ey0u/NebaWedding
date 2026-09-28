@@ -21,10 +21,11 @@ import image_006 from "../../public/image-006.jpg"
 import image_013 from "../../public/image-013.jpg"
 
 const accordionItems = [
-  { image: "/image-002.jpg", label:"Gallery" },
+  { image: "/image-016.jpg",  },
   { image: "/image-003.jpg",  },
   { image: "/image-004.jpg",  },
   { image: "/image-005.jpg",  },
+  { image: "/image-014.jpg",  },
   { image: "/image-006.jpg",  },
   { image: "/image-007.jpg",  },
   { image: "/image-008.jpg",  },
@@ -41,7 +42,7 @@ const wedding = {
   displayDate: "05 · 10 · 2026",
   venue: "The Garden House",
   location: "Addis Ababa, Ethiopia",
-  music: "/music/wedding-song.mp3",
+  music: "/music/wedding.mp3",
 };
 
 const photos = [
@@ -220,10 +221,24 @@ export default function Invitation({ guestName }: { guestName?: string }) {
   const audio = useRef<HTMLAudioElement>(null);
   const { scrollY } = useScroll();
   const heroScale = useTransform(scrollY, [300, 1100], [1, 1.12]);
+  useEffect(() => {
+    if (audio.current) {
+      audio.current.play().then(() => {
+        setMusicOn(true);
+      }).catch(() => {
+        // Autoplay might be blocked by browser if interaction didn't register properly
+        setMusicOn(false);
+      });
+    }
+  }, []);
+
   const toggleMusic = () => {
     if (!audio.current) return;
-    if (musicOn) audio.current.pause();
-    else audio.current.play().catch(() => {});
+    if (musicOn) {
+      audio.current.pause();
+    } else {
+      audio.current.play().catch(() => {});
+    }
     setMusicOn(!musicOn);
   };
   return (
@@ -267,7 +282,7 @@ export default function Invitation({ guestName }: { guestName?: string }) {
         <span>{musicOn ? "Now playing" : "Play our song"}</span>
       </button>
 
-      <section className="hero bg-[#170607] !flex !flex-col !justify-end !pb-[15vh]">
+      <section className="hero bg-[#170607] !flex !flex-col !justify-end !pb-[8vh]">
         <motion.div
           style={{ scale: heroScale }}
           className="absolute inset-0 w-full h-full"
@@ -281,8 +296,8 @@ export default function Invitation({ guestName }: { guestName?: string }) {
             priority
           />
         </motion.div>
-        <div className="hero-wash absolute inset-0 bg-gradient-to-t from-[#170607] via-[#170607]/40 to-transparent opacity-80" />
-        <div className="hero-copy flex flex-col items-center relative z-10 w-full px-4">
+        <div className="hero-wash absolute inset-0 bg-gradient-to-t from-[#170607] from-[5%] via-[#170607]/80 via-[30%] to-transparent opacity-90" />
+        <div className="hero-copy flex flex-col items-center relative z-10 w-full px-4 mb-[-5vh]">
           <span className="eyebrow text-[#D8B96A] tracking-[0.2em] uppercase text-[10px] mb-2">{t.hero.theWeddingOf}</span>
           
           {/* Names horizontally aligned to save vertical space */}
@@ -298,17 +313,17 @@ export default function Invitation({ guestName }: { guestName?: string }) {
             <span>{t.date.displayDate}</span>
           </p>
           
-          <p className="font-serif italic text-[#D8B96A]/80 text-[clamp(0.85rem,1.5vw,1rem)] tracking-wide max-w-lg text-center mt-1 px-6">
+          <p className="font-serif italic text-[#D8B96A]/90 text-[clamp(0.85rem,1.5vw,1rem)] tracking-wide max-w-lg text-center mt-1 px-6">
             {t.hero.bibleVerse}
           </p>
 
           {/* Bouncing Scroll Down Arrow */}
           <motion.div
-            className="mt-6 md:mt-8 text-[#D8B96A]/60"
+            className="mt-4 md:mt-6 text-[#D8B96A]"
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           >
-            <ChevronDown size={24} strokeWidth={1.5} />
+            <ChevronDown size={32} strokeWidth={2} />
           </motion.div>
         </div>
       </section>
@@ -361,7 +376,7 @@ export default function Invitation({ guestName }: { guestName?: string }) {
         <div className="py-16 sm:py-24 max-w-7xl mx-auto px-4 w-full">
           <AccordionGallery
             items={accordionItems}
-            defaultIndex={2}
+            defaultIndex={1}
             expandRatio={0.52}
             trigger="hover"
             accentColor="#D8B96A"
@@ -460,6 +475,7 @@ export default function Invitation({ guestName }: { guestName?: string }) {
           src={photos[1].src}
           alt="Bride and groom celebrating together"
           fill
+          quality={100}
           className="object-cover"
         />
         <div className="final-copy">
@@ -472,7 +488,7 @@ export default function Invitation({ guestName }: { guestName?: string }) {
           </h2>
           <div className="final-rule" />
           <p>
-            {t.hero.name2} & {t.hero.name1}
+            {t.hero.name1} & {t.hero.name2}
           </p>
           <small>{t.finalSection.subtitle}</small>
         </div>

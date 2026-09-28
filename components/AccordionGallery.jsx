@@ -52,40 +52,7 @@ const AccordionGallery = ({
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Auto-expand centered item on scroll for mobile
-  useEffect(() => {
-    if (!isMobile) return;
-
-    const handleScroll = () => {
-      const panels = panelRefs.current;
-      if (!panels.length) return;
-
-      const viewportCenter = window.innerHeight / 2;
-      let minDistance = Infinity;
-      let closestIndex = -1;
-
-      panels.forEach((panel, i) => {
-        if (!panel) return;
-        const rect = panel.getBoundingClientRect();
-        const panelCenter = rect.top + rect.height / 2;
-        const distance = Math.abs(viewportCenter - panelCenter);
-        
-        if (distance < minDistance) {
-          minDistance = distance;
-          closestIndex = i;
-        }
-      });
-
-      if (closestIndex !== -1) {
-        setActive(prev => (prev !== closestIndex ? closestIndex : prev));
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Check initial position
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [isMobile]);
+  // Auto-expand removed to prevent jumping on mobile scroll
 
   const vertical = orientation === 'vertical' || isMobile;
 
@@ -207,9 +174,11 @@ const AccordionGallery = ({
   };
 
   const handleClick = (i, e) => {
+    e.preventDefault();
     if (i !== active) {
-      e.preventDefault();
       setActive(i);
+    } else {
+      setActive((i + 1) % count);
     }
   };
 
