@@ -40,9 +40,18 @@ export default function InviteGenerator() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleUnlock = (e: React.FormEvent) => {
+  const handleUnlock = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (passcode === "N&H2026!") {
+    
+    // Convert passcode to hash
+    const encoder = new TextEncoder();
+    const data = encoder.encode(passcode);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    
+    // Compare with the SHA-256 hash of the real password
+    if (hashHex === "5247eedd755a968da1645ef4a22d57287c1cf8a10a41b06270bdacebb678bd96") {
       setUnlocked(true);
     } else {
       alert("Incorrect passcode");
