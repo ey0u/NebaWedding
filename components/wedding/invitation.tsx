@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import {
   ArrowUpRight,
   ChevronDown,
+  ChevronUp,
   Hand,
   Menu,
   Music2,
@@ -317,13 +318,18 @@ export default function Invitation({ guestName }: { guestName?: string }) {
             {t.hero.bibleVerse}
           </p>
 
-          {/* Bouncing Scroll Down Arrow */}
+          {/* Samsung-style Swipe Up Gesture */}
           <motion.div
-            className="mt-4 md:mt-6 text-[#D8B96A]"
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="mt-6 md:mt-8 flex flex-col items-center -space-y-3 text-[#FBF7EF]/40"
+            animate={{ 
+              opacity: [0.1, 0.7, 0.1], 
+              y: [5, -5, 5] 
+            }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
           >
-            <ChevronDown size={32} strokeWidth={2} />
+            <ChevronUp size={32} strokeWidth={1.5} />
+            <ChevronUp size={32} strokeWidth={1.5} className="opacity-60" />
+            <ChevronUp size={32} strokeWidth={1.5} className="opacity-30" />
           </motion.div>
         </div>
       </section>
@@ -461,7 +467,7 @@ export default function Invitation({ guestName }: { guestName?: string }) {
           </div>
           <a
             className="text-link"
-            href="https://maps.google.com"
+            href="https://maps.app.goo.gl/1WVLunN3K5gVSbFd6"
             target="_blank"
             rel="noreferrer"
           >
@@ -492,6 +498,7 @@ export default function Invitation({ guestName }: { guestName?: string }) {
           </p>
           <small>{t.finalSection.subtitle}</small>
         </div>
+   
       </section>
     </main>
   );
