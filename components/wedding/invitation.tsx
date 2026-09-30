@@ -17,23 +17,30 @@ import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
 import AccordionGallery from "../AccordionGallery";
 import ImageTrail from "../ImageTrail";
-import image_001 from "../../public/image-002.jpg";
-import image_006 from "../../public/image-006.jpg"
-import image_013 from "../../public/image-013.jpg"
+import image_001 from "../../public/photos/priorityimage-024.webp";
+import image_022 from "../../public/photos/priorityimage-022.jpg";
+import image_006 from "../../public/photos/image-019.webp"
+import image_013 from "../../public/photos/image-013.jpg"
 
 const accordionItems = [
-  { image: "/image-016.jpg",  },
-  { image: "/image-003.jpg",  },
-  { image: "/image-004.jpg",  },
-  { image: "/image-005.jpg",  },
-  { image: "/image-014.jpg",  },
-  { image: "/image-006.jpg",  },
-  { image: "/image-007.jpg",  },
-  { image: "/image-008.jpg",  },
-  { image: "/image-009.jpg",  },
-  { image: "/image-010.jpg",  },
-  { image: "/image-011.jpg",  },
-  { image: "/image-012.jpg",  },
+  { image: "/photos/image-016.jpg",  },
+  { image: "/photos/image-003.webp",  },
+  { image: "/photos/image-004.webp",  },
+  { image: "/photos/image-007.webp",  },
+  { image: "/photos/image-015.webp",  },
+  { image: "/photos/priorityimage-023.webp",  },
+  { image: "/photos/image-006.jpg",  },
+
+  { image: "/photos/image-008.jpg",  },
+  { image: "/photos/image-009.jpg",  },
+  { image: "/photos/image-010.jpg",  },
+  { image: "/photos/image-011.jpg",  },
+ 
+
+  { image: "/photos/image-012.jpg",  },
+  { image: "/photos/image-021.webp",  },
+
+  { image: "/photos/image-001.webp",  },
 ];
 
 const wedding = {
@@ -53,12 +60,12 @@ const photos = [
     line: "It started with a hello.",
   },
   {
-    src: image_013,
+    src: image_001,
     alt: "Couple sharing a quiet moment",
     line: "Then came a thousand little moments.",
   },
   {
-    src: image_001,
+    src: image_022,
     alt: "Wedding couple celebrating",
     line: "Somewhere along the way, forever became the plan.",
   },
@@ -423,17 +430,17 @@ export default function Invitation({ guestName }: { guestName?: string }) {
         <div className="absolute inset-0 z-0">
           <ImageTrail
             items={[
-              '/compimg-002.jpg',
-              '/compimg-003.jpg',
-              '/compimg-004.jpg',
-              '/compimg-005.jpg',
-              '/compimg-006.jpg',
-              '/compimg-007.jpg',
-              '/compimg-008.jpg',
-              '/compimg-009.jpg',
-              '/compimg-010.jpg',
-              '/compimg-011.jpg',
-              '/compimg-012.jpg'
+              '/photos/image-002.jpg',
+              '/photos/image-003.webp',
+              '/photos/image-004.webp',
+              '/photos/image-005.webp',
+              '/photos/image-006.jpg',
+              '/photos/image-007.webp',
+              '/photos/image-008.jpg',
+              '/photos/image-009.jpg',
+              '/photos/image-010.jpg',
+              '/photos/image-011.jpg',
+              '/photos/image-012.jpg'
             ]}
             variant={7}
           />
@@ -478,7 +485,7 @@ export default function Invitation({ guestName }: { guestName?: string }) {
 
       <section className="final-section">
         <Image
-          src={photos[1].src}
+          src={photos[2].src}
           alt="Bride and groom celebrating together"
           fill
           quality={100}

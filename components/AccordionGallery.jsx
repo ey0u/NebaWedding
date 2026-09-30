@@ -69,6 +69,8 @@ const AccordionGallery = ({
       if (!panels.length) return;
 
       const effectiveRatio = vertical ? Math.max(0.70, expandRatio) : expandRatio;
+
+      // const effectiveRatio = vertical ? Math.max(0.55, Math.min(0.85, 4.5 / count)) : expandRatio;
       const r = Math.min(Math.max(effectiveRatio, 0.2), 0.9);
       const grow = count > 1 ? (r * (count - 1)) / (1 - r) : 1;
       const mediaSize = mediaSizeRef.current;
@@ -196,7 +198,9 @@ const AccordionGallery = ({
     <div
       ref={rootRef}
       className={`flex ${vertical ? 'flex-col [perspective:none]' : 'flex-row [perspective:1400px]'} w-full max-w-full ${className}`}
-      style={{ gap: `${gap}px`, height: vertical ? `max(90vh, ${Math.round(height * 1.6)}px)` : `${height}px` }}
+      // style={{ gap: `${gap}px`, height: vertical ? `max(85vh, ${count * 90}px)` : `${height}px` }}
+      style={{ gap: `${gap}px`, height: vertical ? `max(90vh, ${Math.round(height * 2)}px)` : `${height}px` }}
+     
       role="list"
       aria-label="Image accordion gallery"
     >
