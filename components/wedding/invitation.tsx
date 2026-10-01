@@ -375,13 +375,7 @@ export default function Invitation({ guestName }: { guestName?: string }) {
               {t.storySection.p2}
             </p>
           </div>
-          {/* <Image
-            className="story-image"
-            src={photos[1].src}
-            alt={photos[1].alt}
-            width={800}
-            height={1066}
-          /> */}
+          
         </div>
       </section>
 
@@ -489,7 +483,7 @@ export default function Invitation({ guestName }: { guestName?: string }) {
           alt="Bride and groom celebrating together"
           fill
           quality={100}
-          className="object-cover"
+          className="object-cover !object-[35%_center]"
         />
         <div className="final-copy">
           <span className="eyebrow">{t.finalSection.eyebrow}</span>
