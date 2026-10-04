@@ -14,7 +14,7 @@
     "theWeddingOf": "The Wedding Of",
     "name1": "Nebiyu",
     "name2": "Hewan",
-    "request": "Request the pleasure of your company",
+    "request": "Thank you for being part of our story",
     "musicPlaying": "Now playing",
     "musicPlay": "Play our song",
     "bibleVerse": "My ears had heard of you but now my eyes have seen you. Job 42:5"
@@ -22,9 +22,10 @@
   "dateSection": {
     "eyebrow": "The first chapter",
     "title": "A date worth\nremembering.",
-    "subtitle": "We saved a place in time for the people we love most. Scratch away the gold to find it.",
+    "subtitle": "The Date will always hold a special place in our hearts. Thank you to everyone who shared in the joy of our wedding and to everyone celebrating this new chapter with us.",
     "scratchText": "SCRATCH TO REVEAL",
     "countdownLabel": "Until we say I do",
+    "countupLabel": "since we say I do",
     "countdown": {
       "days": "Days",
       "hours": "Hours",
@@ -80,7 +81,7 @@
   },
   "finalSection": {
     "eyebrow": "The next chapter",
-    "title": "We can't wait to celebrate with you, {{name}}.",
-    "subtitle": "New Beginnings start here."
+    "title": "Thank you for being part of our beautiful beginning, {{name}}.",
+    "subtitle": "Your presence, love, and good wishes made our celebration even more meaningful,\n\nNew Beginnings start here."
   }
 }

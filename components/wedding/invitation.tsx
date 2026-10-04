@@ -77,27 +77,35 @@ const photos = [
 ];
 
 function useCountdown() {
-  const [time, setTime] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
+  const [data, setData] = useState({
+    time: { days: 0, hours: 0, minutes: 0, seconds: 0 },
+    isPast: false
   });
   useEffect(() => {
+    // October 4, 2026, 12:00 PM local time
+    const targetDate = new Date("2026-10-04T12:00:00").getTime();
+    
     const tick = () => {
-      const diff = Math.max(0, new Date(wedding.date).getTime() - Date.now());
-      setTime({
-        days: Math.floor(diff / 86400000),
-        hours: Math.floor(diff / 3600000) % 24,
-        minutes: Math.floor(diff / 60000) % 60,
-        seconds: Math.floor(diff / 1000) % 60,
+      const now = Date.now();
+      const diff = targetDate - now;
+      const isPast = diff < 0;
+      const absDiff = Math.abs(diff);
+
+      setData({
+        time: {
+          days: Math.floor(absDiff / 86400000),
+          hours: Math.floor(absDiff / 3600000) % 24,
+          minutes: Math.floor(absDiff / 60000) % 60,
+          seconds: Math.floor(absDiff / 1000) % 60,
+        },
+        isPast,
       });
     };
     tick();
     const id = window.setInterval(tick, 1000);
     return () => window.clearInterval(id);
   }, []);
-  return time;
+  return data;
 }
 
 function CurtainIntro() {
@@ -208,17 +216,22 @@ function ScratchCard() {
 }
 
 function Countdown() {
-  const time = useCountdown();
+  const { time, isPast } = useCountdown();
   const { t } = useLanguage();
   return (
-    <div className="countdown">
-      {Object.entries(time).map(([key, value]) => (
-        <div key={key}>
-          <strong>{String(value).padStart(2, "0")}</strong>
-          <span>{t.dateSection.countdown[key as keyof typeof t.dateSection.countdown]}</span>
-        </div>
-      ))}
-    </div>
+    <>
+      <div className="countdown-label text-[#D8B96A] text-[10px] tracking-[0.2em] uppercase mb-4 text-center">
+        {isPast ? t.dateSection.countupLabel : t.dateSection.countdownLabel}
+      </div>
+      <div className="countdown">
+        {Object.entries(time).map(([key, value]) => (
+          <div key={key}>
+            <strong>{String(value).padStart(2, "0")}</strong>
+            <span>{t.dateSection.countdown[key as keyof typeof t.dateSection.countdown]}</span>
+          </div>
+        ))}
+      </div>
+    </>
   );
 }
 
@@ -351,9 +364,6 @@ export default function Invitation({ guestName }: { guestName?: string }) {
           </p>
         </div>
         <ScratchCard />
-        <div className="countdown-label">
-          {t.dateSection.countdownLabel}
-        </div>
         <Countdown />
       </section>
 
